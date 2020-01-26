@@ -5,26 +5,30 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.apache.log4j.Logger;
 
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
 public class CreateTableImpl implements CreateTable {
+    private static final Logger LOG = Logger.getLogger(CreateTableImpl.class);
     private JdbcTemplate jdbcTemplate;
 
     @Override
     public String createCompany() {
         String preQuery = "DROP TABLE IF EXISTS companies";
         String query = ("CREATE TABLE companies (\n" +
-                " code char(5) CONSTRAINT firstkey PRIMARY KEY, \n" +
-                " title varchar(40) NOT NULL, \n" +
-                " did integer NOT NULL, \n" +
-                " date_prod date, \n" +
-                " kind varchar(10), \n" +
-                " len interval hour to minute\n" +
+                " id int CONSTRAINT firstkey PRIMARY KEY, \n" +
+                " name varchar(255) NOT NULL, \n" +
+                " size integer NOT NULL" +
                 ");");
-        jdbcTemplate.execute(preQuery);
-        jdbcTemplate.execute(query);
+        try {
+            jdbcTemplate.execute(preQuery);
+            jdbcTemplate.execute(query);
+        }catch (Exception e) {
+            LOG.error("something going wrong " + e);
+        }
+
         return "table created";
     }
 }

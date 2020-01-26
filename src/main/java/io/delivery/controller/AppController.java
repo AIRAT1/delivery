@@ -15,10 +15,10 @@ public class AppController {
     private Answer answer;
     @Autowired
     private Message message;
-//    @Autowired
-//    private CreateTable tableCreator;
     @Autowired
-    private TableCreator tableCreator;
+    private CreateTable tableCreator;
+//    @Autowired
+//    private TableCreator tableCreator;
 
     @RequestMapping("/")
     public String hello(Model model) {

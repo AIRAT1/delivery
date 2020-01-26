@@ -35,13 +35,13 @@ public class AppConfig {
         return jdbcTemplate;
     }
 
-    @Bean
-    public TableCreator tableCreator() {
-        return new TableCreatorImpl(jdbcTemplate());
-    }
-
 //    @Bean
-//    public CreateTable table() {
-//        return new CreateTableImpl(jdbcTemplate());
+//    public TableCreator tableCreator() {
+//        return new TableCreatorImpl(jdbcTemplate());
 //    }
+
+    @Bean
+    public CreateTable table() {
+        return new CreateTableImpl(jdbcTemplate());
+    }
 }
