@@ -1,14 +1,16 @@
-package io.delivery.model;
+package io.delivery.model.impl;
 
+import io.delivery.model.TableCreator;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 @NoArgsConstructor
 @AllArgsConstructor
-public class CreateTable {
+public class TableCreatorImpl implements TableCreator {
     private JdbcTemplate jdbcTemplate;
 
+    @Override
     public String createCompany() {
         String preQuery = "DROP TABLE IF EXISTS companies";
         String query = ("CREATE TABLE companies (\n" +

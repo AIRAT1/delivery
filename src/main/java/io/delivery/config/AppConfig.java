@@ -1,5 +1,7 @@
-package io.delivery.config.application;
+package io.delivery.config;
 
+import io.delivery.model.TableCreator;
+import io.delivery.model.impl.TableCreatorImpl;
 import io.delivery.service.CreateTable;
 import io.delivery.service.impl.CreateTableImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,7 +36,12 @@ public class AppConfig {
     }
 
     @Bean
-    public CreateTable table() {
-        return new CreateTableImpl(jdbcTemplate());
+    public TableCreator tableCreator() {
+        return new TableCreatorImpl(jdbcTemplate());
     }
+
+//    @Bean
+//    public CreateTable table() {
+//        return new CreateTableImpl(jdbcTemplate());
+//    }
 }
