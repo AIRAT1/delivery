@@ -11,10 +11,11 @@ public class Document {
     }
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "document_id")
     private long id;
 
-    @Column(name = "document_name")
+//    @Column(name = "document_name")
     private String name;
 
     @Transient
