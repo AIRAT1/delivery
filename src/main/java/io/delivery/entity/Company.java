@@ -2,13 +2,16 @@ package io.delivery.entity;
 
 import lombok.Data;
 
-//@Entity
-//@Table(name="companies")
+import javax.persistence.*;
+
+@Entity
+@Table(name="companies")
 @Data
 public class Company {
+    @Id
+    @GeneratedValue(strategy= GenerationType.AUTO)
     private int id;
+
+
     private String title;
-//    @Id
-//    @GeneratedValue(strategy=GenerationType.Auto)
-//    private int id;
 }

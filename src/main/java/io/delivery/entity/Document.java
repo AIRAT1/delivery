@@ -5,9 +5,11 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 
 @Entity
-@NoArgsConstructor
 @Table(name = "documents")
 public class Document {
+    public Document() {
+    }
+
     @Id
     @Column(name = "document_id")
     private long id;
