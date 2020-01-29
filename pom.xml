@@ -16,6 +16,7 @@
         <spring.version>4.3.18.RELEASE</spring.version>
         <spring.security.version>4.2.0.RELEASE</spring.security.version>
         <hibernate.version>5.2.4.Final</hibernate.version>
+        <jackson.version>2.10.1</jackson.version>
     </properties>
 
     <dependencies>
@@ -116,22 +117,11 @@
             <version>2.3.0</version>
         </dependency>
 
-        <!-- provide second level caching functionality -->
-        <!-- https://mvnrepository.com/artifact/org.ehcache/ehcache -->
         <dependency>
             <groupId>org.ehcache</groupId>
             <artifactId>ehcache</artifactId>
             <version>3.4.0</version>
         </dependency>
-
-
-<!--        &lt;!&ndash; provide ehcache integration with hibernate &ndash;&gt;-->
-<!--        &lt;!&ndash; https://mvnrepository.com/artifact/org.hibernate/hibernate-ehcache &ndash;&gt;-->
-<!--        <dependency>-->
-<!--            <groupId>org.hibernate</groupId>-->
-<!--            <artifactId>hibernate-ehcache</artifactId>-->
-<!--            <version>5.2.8.Final</version>-->
-<!--        </dependency>-->
 
         <dependency>
             <groupId>org.hibernate</groupId>
@@ -143,6 +133,18 @@
                     <artifactId>ehcache</artifactId>
                 </exclusion>
             </exclusions>
+        </dependency>
+
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-core</artifactId>
+            <version>${jackson.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>${jackson.version}</version>
         </dependency>
 
     </dependencies>

@@ -1,5 +1,8 @@
 package io.delivery.config;
 
+import io.delivery.dao.DocumentDao;
+import io.delivery.dao.impl.DocumentDaoImpl;
+import io.delivery.entity.Document;
 import io.delivery.model.TableCreator;
 import io.delivery.model.impl.TableCreatorImpl;
 import io.delivery.service.CreateTable;
@@ -55,5 +58,10 @@ public class AppConfig {
     @Bean
     public CreateTable table() {
         return new CreateTableImpl(jdbcTemplate());
+    }
+
+    @Bean
+    public DocumentDao documentDao() {
+        return new DocumentDaoImpl(Document.class);
     }
 }

@@ -18,6 +18,14 @@ public class Document {
 //    @Column(name = "document_name")
     private String name;
 
+    public String getSpecificInnerInfo() {
+        return specificInnerInfo;
+    }
+
+    public void setSpecificInnerInfo(String specificInnerInfo) {
+        this.specificInnerInfo = specificInnerInfo;
+    }
+
     @Transient
     private String specificInnerInfo;
 
