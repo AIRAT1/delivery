@@ -17,4 +17,11 @@ public interface BasicDao<T> {
      * @return list for entities
      */
     List<T> getList();
+
+    /**
+     * Create entity at database
+     * @param entity - current entity
+     * @return created entity
+     */
+    T create(T entity);
 }

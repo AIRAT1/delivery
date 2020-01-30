@@ -4,9 +4,7 @@ import io.delivery.entity.Document;
 import io.delivery.service.DocumentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -24,5 +22,18 @@ public class DocumentController {
     @ResponseBody
     public List<Document> getDocumentList() {
         return documentService.getDocumentList();
+    }
+
+    @RequestMapping(value = "/get/name/{name}")
+    @ResponseBody
+    public List<Document> getDocumentByName(@PathVariable(value = "name") String name) {
+        return documentService.findByName(name);
+    }
+
+    @RequestMapping(value = "/add", method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
+    @ResponseBody
+    public Document addDocument(@RequestBody Document document) {
+        documentService.create(document);
+        return document;
     }
 }
