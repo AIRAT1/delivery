@@ -24,7 +24,7 @@ public class DocumentController {
         return documentService.getDocumentList();
     }
 
-    @RequestMapping(value = "/get/name/{name}")
+    @RequestMapping(value = "/get/name/{name}", method = RequestMethod.GET)
     @ResponseBody
     public List<Document> getDocumentByName(@PathVariable(value = "name") String name) {
         return documentService.findByName(name);
