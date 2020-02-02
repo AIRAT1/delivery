@@ -24,4 +24,22 @@ public interface DocumentService {
      * @return created document
      */
     Document create(Document document);
+
+    /**
+     * @param document - document for update
+     * @return document
+     */
+    Document updateDocument(Document document);
+
+    /**
+     * @param id - document id
+     * @return deleted document
+     */
+    Document deleteDocument(long id);
+
+    /**
+     * @param id - document id
+     * @return document
+     */
+    Document findById(long id);
 }
