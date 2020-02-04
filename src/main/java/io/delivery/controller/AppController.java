@@ -50,4 +50,8 @@ public class AppController {
         return modelAndView;
     }
 
+    @RequestMapping(value = "/documentApi")
+    public String getDocumentInfo() {
+        return "document";
+    }
 }

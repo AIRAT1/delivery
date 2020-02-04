@@ -31,4 +31,8 @@ public class CreateTableImpl implements CreateTable {
 
         return "table created";
     }
+
+    public String delete() {
+        return "done";
+    }
 }
