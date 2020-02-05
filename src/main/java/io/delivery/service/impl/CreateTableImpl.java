@@ -10,7 +10,7 @@ import org.apache.log4j.Logger;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-public class CreateTableImpl implements CreateTable {
+public final class CreateTableImpl implements CreateTable {
     private static final Logger LOG = Logger.getLogger(CreateTableImpl.class);
     private JdbcTemplate jdbcTemplate;
 
