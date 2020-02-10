@@ -7,6 +7,7 @@ import io.delivery.model.TableCreator;
 import io.delivery.model.impl.TableCreatorImpl;
 import io.delivery.service.CreateTable;
 import io.delivery.service.impl.CreateTableImpl;
+import net.yandex.speller.services.spellservice.Client;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -63,5 +64,10 @@ public class AppConfig {
     @Bean
     public DocumentDao documentDao() {
         return new DocumentDaoImpl(Document.class);
+    }
+
+    @Bean
+    public Client client() {
+        return new Client();
     }
 }

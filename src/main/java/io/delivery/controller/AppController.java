@@ -3,6 +3,7 @@ package io.delivery.controller;
 import io.delivery.model.Answer;
 import io.delivery.model.Message;
 import io.delivery.service.CreateTable;
+import net.yandex.speller.services.spellservice.Client;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
@@ -11,6 +12,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+
+import javax.xml.soap.SOAPException;
+import java.io.IOException;
 
 @Controller
 public class AppController {
@@ -22,6 +26,8 @@ public class AppController {
     private CreateTable tableCreator;
 //    @Autowired
 //    private TableCreator tableCreator;
+    @Autowired
+    private Client client;
 
     @RequestMapping("/")
     public String hello(Model model) {
@@ -53,5 +59,13 @@ public class AppController {
     @RequestMapping(value = "/documentApi")
     public String getDocumentInfo() {
         return "document";
+    }
+
+    @RequestMapping(value = {"/word/{check}"}, method = RequestMethod.GET)
+    public ModelAndView checkWord(@PathVariable("check") String check) throws IOException, SOAPException {
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("spell");
+        modelAndView.addObject("info", client.result(check));
+        return modelAndView;
     }
 }
